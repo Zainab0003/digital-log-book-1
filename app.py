@@ -173,8 +173,7 @@ def render_categorized_tabs(dataframe, highlight_func=None, subset_cols=None):
             if not df_cat.empty:
                 if highlight_func:
                     st.table(df_cat.style.applymap(highlight_func, subset=subset_cols) if subset_cols else df_cat.style.apply(highlight_func, axis=1), use_container_width=True, hide_index=True)
-                else:
-                    st.table(df_cat, use_container_width=True, hide_index=True)
+                
             else:
                 st.caption(f"No {cat_name} records found.")
 
