@@ -158,6 +158,9 @@ def get_audit_logs():
     return df
 
 # Helper Function for Category Tabs
+# --- ADD THIS HELPER FUNCTION ---
+def highlight_quarantined(row):
+    return ['background-color: #ffcccc'] * len(row) if row.get('is_quarantined') == 1 else [''] * len(row)
 def render_categorized_tabs(dataframe, highlight_func=None, subset_cols=None):
     if dataframe.empty:
         st.info("No data available.")
